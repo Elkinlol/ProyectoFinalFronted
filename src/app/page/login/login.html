@@ -1,1 +1,20 @@
-<p>login works!</p>
+<form novalidate="" [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <h1>INICIO SESION</h1>
+    <div>
+        <label> Email: </label>
+        <input type="email" formControlName="email"/>
+    </div>
+
+    <div>
+        <label>Contraseña: </label> 
+        <input type="password" formControlName = "password" />
+    </div>
+
+    <div><button type="submit" [disabled]="loginForm.invalid"> Iniciar Sesion</button>  </div>
+    
+    <div><button type="button"> Registrarse </button></div>
+
+    <div>
+        <a href="#">¿Olvidaste tu contraseña?</a>
+    </div>
+</form>

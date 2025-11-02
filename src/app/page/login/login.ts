@@ -1,11 +1,31 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
 export class Login {
+  loginForm!: FormGroup;
+  
+  constructor(private formBuilder: FormBuilder) { 
+    this.createForm();
+  }
+
+  private createForm() {
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(7)]]
+    });
+  }
+
+  public loginUser() {
+    console.log(this.loginForm.value);
+  }
+
+
 
 }

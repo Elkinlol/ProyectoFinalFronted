@@ -1,1 +1,44 @@
-<p>create-listing works!</p>
+<form [formGroup]="createListingForm" (ngSubmit)="createListing()" novalidate="">
+    <div>
+        <label> Título: </label>
+        <input type="text" formControlName="title" />
+    </div>
+    <div>
+        <label> Descripción: </label>
+        <textarea formControlName="description"></textarea>
+    </div>
+    <div>
+        <label> Precio: </label>
+        <input type="number" formControlName="price" /> 
+    </div>
+    <div>
+        <label> Cantidad maxima de huspedes </label>
+        <input type="number" formControlName="maxGuests" />
+    </div>
+    <div>
+        <label> Dirección: </label>
+        <input type="text" formControlName="location" />
+    </div>
+    <div> 
+        <label> Ciudad: </label>
+        <select formControlName="city">
+            <option value="" disabled selected>Seleccione una ciudad</option>
+            @for (item of cities; track $index) {
+                <option value="{{item}}">{{item}}</option>
+            }
+        </select>
+    </div>
+    <div>
+        <label> Longitud: </label>
+        <input type="text" formControlName="length" />
+    </div>
+    <div>
+        <label> Latitud: </label>
+        <input type="text" formControlName="latitude" />
+    </div>
+    <div>
+        <label> Foto del alojamiento: </label>
+        <input type="file" formControlName="images" />
+    </div>
+    <button type="submit" [disabled]="createListingForm.invalid"> Crear Alojamiento </button>
+</form>

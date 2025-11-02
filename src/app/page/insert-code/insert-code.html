@@ -1,1 +1,16 @@
-<p>insert-code works!</p>
+<form (ngSubmit)="insertCode()" novalidate="" [formGroup]="insertCodeForm">
+    <h1>INGRESAR CODIGO</h1>
+    <div>
+        <label> Código: </label>
+        <input type="text" formControlName="code" />
+    </div>
+    <div>
+        <label> Email: </label>
+        <input type="email" formControlName="email" />
+    </div>
+    <div>
+        <label> Nueva Contraseña: </label>
+        <input type="password" formControlName="newPassword" />
+    </div>
+    <button type="submit" [disabled]="insertCodeForm.invalid"> Confirmar</button>
+</form>
