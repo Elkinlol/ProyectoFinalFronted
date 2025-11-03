@@ -1,0 +1,145 @@
+form {
+  background: #f9fbff;
+  border-radius: 16px;
+  padding: 30px 40px;
+  max-width: 850px;
+  margin: 40px auto;
+  box-shadow: 0 4px 15px rgba(0, 80, 160, 0.1);
+  font-family: "Segoe UI", sans-serif;
+}
+
+h1 {
+  text-align: left;
+  color: #000;
+  font-size: 26px;
+  margin-bottom: 25px;
+}
+
+.profile-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circle {
+  background-color: #1fc9c8;
+  color: white;
+  font-size: 48px;
+  font-weight: bold;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.btn-upload {
+  margin-top: 10px;
+  background: #1fc9c8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-upload:hover {
+  background-color: #15b1b0;
+}
+
+.profile-fields {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: 600;
+  color: #003366;
+}
+
+input {
+  width: 100%;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  outline: none;
+  color: #000;
+}
+
+input[readonly] {
+  background-color: #e8f1ff;
+  cursor: not-allowed;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4f9eff, #0073e6);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0073e6, #005bb5);
+  box-shadow: 0 0 12px rgba(0, 140, 255, 0.6);
+}
+
+.btn-secondary {
+  background: #1fc9c8;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-secondary:hover {
+  background: #18b4b3;
+}
+
+.role-switch {
+  margin-top: 20px;
+}
+
+.btn-switch {
+  background-color: #f0f6ff;
+  color: #0073e6;
+  border: 1.5px solid #0073e6;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-switch:hover {
+  background-color: #0073e6;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

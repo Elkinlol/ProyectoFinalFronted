@@ -1,0 +1,135 @@
+/* Estructura general de la página */
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  border-bottom: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.nav a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #000;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #555;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Botón del perfil */
+.profile-btn {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  background-color: #cfd6de;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile-btn:hover {
+  background-color: #b0bac6;
+}
+
+/* Botón del menú */
+.menu-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* ===== MAIN ===== */
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: 40px 20px;
+}
+
+/* ===== SECCIÓN DE BÚSQUEDA ===== */
+.search-bar {
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 40px;
+  width: 700px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar h1 {
+  font-size: 22px;
+  margin-bottom: 25px;
+  color: #000;
+}
+
+/* ===== FORMULARIO DE FILTRO ===== */
+.filter-box {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.filter-box input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.search-btn {
+  background-color: #cfd6de;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+  background-color: #b0bac6;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 20px;
+  }
+
+  .filter-box {
+    grid-template-columns: 1fr;
+  }
+
+  .search-bar {
+    width: 100%;
+    padding: 25px;
+  }
+}

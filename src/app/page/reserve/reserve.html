@@ -1,1 +1,20 @@
-<p>reserve works!</p>
+<form [formGroup]="reserveForm" (ngSubmit)="makeReservation()" novalidate="">
+    <div>
+        <label> Entrada: </label>
+        <input type="date" formControlName="checkIn" />
+    </div>
+    <div>
+        <label> Salida: </label>
+        <input type="date" formControlName="checkOut" />
+    </div>
+    <div>
+        <label> Número de huéspedes: </label>
+        <input type="number" formControlName="guests" />
+    </div>
+    <div>
+        <label> Código de descuento: </label>
+        <input type="text" formControlName="discountCode" />
+    </div>
+    <button type="submit" [disabled]="reserveForm.invalid"> Enviar </button>
+
+</form>

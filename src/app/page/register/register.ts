@@ -25,7 +25,7 @@ export class Register {
     photoUrl: [''],
     dateBirth: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(7)]],
+    password: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(7), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/)]],
     repeatPassword: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(7)]]
     }, { validators: this.passwordsMatchValidator } as AbstractControlOptions);
  

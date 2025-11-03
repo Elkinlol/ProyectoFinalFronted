@@ -10,5 +10,5 @@ import { RouterModule } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('fronted');
-  protected readonly footer = signal('universidad del quindio')
+  protected readonly footer = signal('Universidad del Quindío - 2025')
 }

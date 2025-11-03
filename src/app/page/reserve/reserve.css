@@ -1,0 +1,80 @@
+/* Centrar el formulario en medio de la pantalla */
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+/* Caja del formulario */
+form {
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 40px;
+  width: 420px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+/* Contenedores de los campos */
+form div {
+  margin-bottom: 15px;
+  width: 100%;
+  text-align: left;
+}
+
+/* Etiquetas */
+form label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+/* Entradas */
+form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Botón */
+form button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #cfd6de;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+/* Hover */
+form button:hover {
+  background-color: #b0bac6;
+}
+
+/* Botón deshabilitado */
+form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 480px) {
+  form {
+    width: calc(100% - 40px);
+    padding: 24px;
+  }
+}

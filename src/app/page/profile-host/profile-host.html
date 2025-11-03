@@ -1,1 +1,57 @@
-<p>profile-host works!</p>
+<div class="form-container">
+  <div class="form-card">
+    <h1>Mi perfil - Anfitrión</h1>
+
+    <!-- Imagen redonda -->
+    <div class="photo-container">
+      <img src="assets/default-profile.png" alt="Foto de perfil" class="profile-photo" />
+    </div>
+
+    <form [formGroup]="profileHostForm" (ngSubmit)="updateProfileHost()" novalidate>
+      <div>
+        <label>Email:</label>
+        <input type="email" formControlName="email" readonly />
+      </div>
+
+      <div>
+        <label>Rol:</label>
+        <input type="text" formControlName="role" readonly />
+      </div>
+
+      <div>
+        <label>Nombre:</label>
+        <input type="text" formControlName="name" />
+      </div>
+
+      <div>
+        <label>Teléfono:</label>
+        <input type="text" formControlName="phone" />
+      </div>
+
+      <div>
+        <label>Foto:</label>
+        <input type="file" formControlName="photo" />
+      </div>
+
+      <div>
+        <label>Descripción:</label>
+        <textarea formControlName="aboutMe" placeholder="Cuéntanos un poco sobre ti..."></textarea>
+      </div>
+
+      <div>
+        <label>Documentos Legales:</label>
+        <input type="file" formControlName="documents" />
+      </div>
+
+      <div class="button-group">
+        <button type="submit" [disabled]="profileHostForm.invalid" class="primary">
+          Guardar Cambios
+        </button>
+
+        <button type="button" class="secondary" (click)="switchToUserProfile()">
+            Cambiar a Perfil de huesped
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,14 +1,23 @@
 <header>
-  <h1>Página inicial de {{ title() }}</h1>
+    <div class="logo">
+    <img src="LogoAloja.png" alt="Aloja">
+  </div>
   <ul>
-    <li><a routerLink="/">Inicio</a></li>
+    <li><a routerLink="/main-page-guest">Inicio</a></li>
     <li><a routerLink="/login">Login</a></li>
     <li><a routerLink="/register">Registro</a></li>
+    <li><a routerLink="/profile">Perfil Usuario</a></li>
+    <li><a routerLink="/profile-host">Perfil Anfitrión</a></li>
+    <li><a routerLink="/insert-code">Recuperar cuenta</a></li>
+    <li><a routerLink="/create-listing"> Crear un alojamiento</a></li>
+    <li><a routerLink="/recover-password">Solicitar cambio Contraseña</a></li>
+    <li><a routerLink="/change-password">Actualizar Contraseña</a></li>
+    <li><a routerLink="/reserve"> Reservar </a></li>
   </ul>
 </header>
 
 <router-outlet></router-outlet>
 
 <footer>
-  <p>Universidad del Quindío - 2025</p>
+  <p>{{footer()}}</p>
 </footer>

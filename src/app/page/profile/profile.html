@@ -1,1 +1,45 @@
-<p>profile works!</p>
+<form [formGroup]="profileForm" (ngSubmit)="updateProfile()" novalidate="">
+  <h1>Mi perfil</h1>
+
+  <div class="profile-container">
+    <!-- Avatar -->
+    <div class="avatar">
+      <div class="circle">{{ userInitial }}</div>
+      <button type="button" class="btn-upload">Agregar foto</button>
+    </div>
+
+    <!-- Información -->
+    <div class="profile-fields">
+      <div>
+        <label>Nombre completo:</label>
+        <input type="text" formControlName="name" />
+      </div>
+
+      <div>
+        <label>Teléfono:</label>
+        <input type="text" formControlName="phone" />
+      </div>
+
+      <div>
+        <label>Email:</label>
+        <input type="email" formControlName="email" readonly />
+      </div>
+
+      <div>
+        <label>Rol:</label>
+        <input type="text" formControlName="role" readonly />
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="btn-secondary" (click)="changePassword()">Cambiar contraseña</button>
+        <button type="submit" class="btn-primary">Guardar cambios</button>
+      </div>
+
+      <div class="role-switch">
+        <button type="button" class="btn-switch" (click)="siwtchToHostProfile()">
+          Cambiar a {{ profileForm.get('role')?.value === 'Anfitrión' ? 'Huésped' : 'Anfitrión' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
