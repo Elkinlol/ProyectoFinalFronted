@@ -1,0 +1,123 @@
+/* Contenedor general */
+.search-bar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 30px 16px;
+  box-sizing: border-box;
+}
+
+/* Tarjeta blanca con sombra */
+.filter-card {
+  width: 95%;
+  max-width: 1100px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12), 0 1px 0 rgba(0,0,0,0.06) inset;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 18px 10px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Cada campo */
+.filter-item {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  box-sizing: border-box;
+  min-width: 140px; /* evita que se comprima demasiado */
+  position: relative;
+}
+
+/* Separadores verticales (excepto primer y último) */
+.filter-item + .filter-item {
+  border-left: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Etiqueta superior (label) */
+.field-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 8px;
+}
+
+/* Input estilo "limpio" */
+.field-input {
+  font-size: 14px;
+  padding: 8px 6px;
+  border: none;
+  outline: none;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+/* Hint o texto pequeño debajo (más claro) */
+.field-hint {
+  font-size: 12px;
+  color: rgba(0,0,0,0.35);
+  margin-top: 4px;
+}
+
+/* Botón circular de búsqueda */
+.search-btn {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  border-radius: 50%;
+  border: 2px solid rgba(0,0,0,0.16);
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 18px;
+  margin-right: 6px;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+/* Icono (Material Symbols) */
+.material-symbols-rounded {
+  font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+  font-size: 22px;
+  color: #111;
+}
+
+/* Hover del botón */
+.search-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+/* Estilos para inputs date (si quieres esconder flechas en algunos navegadores) */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+/* Responsive: apilar en pantallas pequeñas */
+@media (max-width: 760px) {
+  .filter-card {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .filter-item {
+    width: 100%;
+    padding: 8px 12px;
+  }
+
+  .filter-item + .filter-item {
+    border-left: none;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .search-btn {
+    margin-left: 0;
+    align-self: flex-end;
+  }
+}

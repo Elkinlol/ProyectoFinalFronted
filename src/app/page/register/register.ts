@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControlOptions, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { repeat } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,10 +12,13 @@ import { repeat } from 'rxjs';
 export class Register {
 
   registerForm!: FormGroup;
-  
-  constructor(private formBuilder: FormBuilder) { 
+  RouterLink: any;
+  role: String [];
+
+  constructor(private formBuilder: FormBuilder, private router: Router) { 
     this.createForm();
     console.log('Register component initialized');
+    this.role = ['Anfitrion', 'Huesped'];
   }
 
   private createForm() {
@@ -34,14 +37,16 @@ export class Register {
 
   public createUser() {
     console.log(this.registerForm.value);
+    this.router.navigate(['/login']);
+
   }
 
   public passwordsMatchValidator(formGroup: FormGroup) {
   const password = formGroup.get('password')?.value;
   const confirmaPassword = formGroup.get('repeatPassword')?.value;
-
   // Si las contraseñas no coinciden, devuelve un error, de lo contrario, null
   return password == confirmaPassword ? null : { passwordsMismatch: true };
   }
+
 
 }

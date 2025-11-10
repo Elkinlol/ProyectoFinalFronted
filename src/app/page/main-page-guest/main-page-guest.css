@@ -70,51 +70,6 @@
   padding: 40px 20px;
 }
 
-/* ===== SECCIÓN DE BÚSQUEDA ===== */
-.search-bar {
-  text-align: center;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 40px;
-  width: 700px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.search-bar h1 {
-  font-size: 22px;
-  margin-bottom: 25px;
-  color: #000;
-}
-
-/* ===== FORMULARIO DE FILTRO ===== */
-.filter-box {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-}
-
-.filter-box input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.search-btn {
-  background-color: #cfd6de;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 18px;
-  transition: background-color 0.3s ease;
-}
-
-.search-btn:hover {
-  background-color: #b0bac6;
-}
 
 /* ===== RESPONSIVO ===== */
 @media (max-width: 768px) {

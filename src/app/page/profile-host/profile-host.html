@@ -2,9 +2,11 @@
   <div class="form-card">
     <h1>Mi perfil - Anfitrión</h1>
 
-    <!-- Imagen redonda -->
-    <div class="photo-container">
-      <img src="assets/default-profile.png" alt="Foto de perfil" class="profile-photo" />
+  <div class="profile-container">
+    <!-- Avatar -->
+    <div class="avatar">
+      <div class="circle">{{ userInitial }}</div>
+      <button type="button" class="btn-upload">Agregar foto</button>
     </div>
 
     <form [formGroup]="profileHostForm" (ngSubmit)="updateProfileHost()" novalidate>

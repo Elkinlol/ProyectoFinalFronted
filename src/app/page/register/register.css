@@ -47,6 +47,39 @@ form input[type="file"] {
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
+form select {
+  width: 100%;
+  padding: 10px;
+  border: 1.5px solid #888;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  appearance: none; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%2300aaff' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+form select:hover {
+  border-color: #00aaff;
+}
+
+form select:focus {
+  outline: none;
+  border-color: #00aaff;
+  box-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
+}
+
+
+form select option[disabled] {
+  color: #aaa;
+}
+
 form input:focus {
   outline: none;
   border-color: #00aaff;

@@ -1,0 +1,46 @@
+<section class="search-bar">
+  <div class="filter-card">
+    <!-- Estado / Dónde (según rol) -->
+    @if (isHost) {
+      <div class="filter-item">
+        <label class="field-label">Estado</label>
+        <input class="field-input" type="text" placeholder="de la reserva" />
+      </div>
+    } @else {
+      <div class="filter-item">
+        <label class="field-label">Donde</label>
+        <input class="field-input" type="text" placeholder="Explora destinos" />
+      </div>
+    }
+
+    <!-- Check-in -->
+    <div class="filter-item">
+      <label class="field-label">Fecha de entrada</label>
+      <input class="field-input" type="date" />
+    </div>
+
+    <!-- Check-out -->
+    <div class="filter-item">
+      <label class="field-label">Fecha de salida</label>
+      <input class="field-input" type="date"  />
+    </div>
+
+    <!-- Pagina / Valor por noche -->
+    @if (isHost) {
+      <div class="filter-item">
+        <label class="field-label">Página</label>
+        <input class="field-input" type="number" placeholder="De la reserva" />
+      </div>
+    } @else {
+      <div class="filter-item">
+        <label class="field-label">Valor</label>
+        <input class="field-input" type="number" placeholder="Precio por noche" />
+      </div>
+    }
+
+
+    <button class="search-btn" type="submit" title="Buscar">
+      <span class="material-symbols-rounded">search</span>
+    </button>
+  </div>
+</section>

@@ -67,3 +67,14 @@ a {
 a:hover {
   text-decoration: underline;
 }
+.login-logo-top {
+  margin-bottom: 10px;
+  text-align: left; 
+  width: 100%;      
+}
+
+.login-logo-top img {
+  height: 130px;
+  display: block;
+  margin-left: 0;  
+}
