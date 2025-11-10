@@ -1,9 +1,5 @@
-export interface UserDto {
-    name: string;
+export interface UserDTO {
+    fullName: string;
+    numberPhone: string;
     email: string;
-    password: string;
-    telefono: string;
-    birthDate: Date;
-    photoUrl?: string;
-    rol: 'guest' | 'host'
 }

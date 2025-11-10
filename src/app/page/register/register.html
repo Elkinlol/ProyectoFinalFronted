@@ -4,12 +4,12 @@
       <h2>Registro de Usuario</h2>
       <div class="form-group">
         <label for="name">Nombre:</label>
-        <input id="name" type="text" formControlName="name" placeholder="Tu nombre completo" />
+        <input id="name" type="text" formControlName="fullName" placeholder="Tu nombre completo" />
       </div>
 
       <div class="form-group">
         <label for="phone">Teléfono:</label>
-        <input id="phone" type="text" formControlName="phone" placeholder="Ej: 3001234567" />
+        <input id="phone" type="text" formControlName="numberPhone" placeholder="Ej: 3001234567" />
       </div>
 
       <div class="form-group">
@@ -19,13 +19,13 @@
 
       <div class="form-group">
         <label for="dateBirth">Fecha de nacimiento:</label>
-        <input id="dateBirth" type="date" formControlName="dateBirth" />
+        <input id="dateBirth" type="date" formControlName="birthday" />
       </div>
       
 
       <div class="form-group">
         <label> Rol: </label>
-        <select formControlName="Rol">
+        <select formControlName="rol">
             <option value="" disabled selected>Seleccione un rol</option>
             @for (item of role; track $index) {
                 <option value="{{item}}">{{item}}</option>

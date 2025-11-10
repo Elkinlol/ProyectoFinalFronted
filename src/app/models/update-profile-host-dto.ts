@@ -1,4 +1,4 @@
-export interface UpdateProfileHostDto {
+export interface UpdateProfileHostDTO {
     name?: string;
     telefono?: string;
     photoUrl?: string;

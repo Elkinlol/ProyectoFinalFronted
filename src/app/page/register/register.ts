@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { AbstractControlOptions, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CreateListingDTO } from '../../models/create-listing-dto';
+import { AuthService } from '../../services/auth-service';
+import { ResponseDTO } from '../../models/response-dto';
+import { createUserDTO } from '../../models/create-user-dto';
 
 @Component({
   selector: 'app-register',
@@ -15,31 +19,42 @@ export class Register {
   RouterLink: any;
   role: String [];
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { 
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { 
     this.createForm();
     console.log('Register component initialized');
-    this.role = ['Anfitrion', 'Huesped'];
+    this.role = ['HOST', 'GUEST'];
   }
 
   private createForm() {
     this.registerForm = this.formBuilder.group({
-    name: ['', [Validators.required]],
-    phone: ['', [Validators.required, Validators.maxLength(11)]],
+    fullName: ['', [Validators.required]],
+    numberPhone: ['', [Validators.required, Validators.maxLength(11)]],
     photoUrl: [''],
-    dateBirth: ['', [Validators.required]],
+    birthday: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(7), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/)]],
-    repeatPassword: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(7)]]
+    repeatPassword: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(7)]],
+    rol: ['GUEST', []]
     }, { validators: this.passwordsMatchValidator } as AbstractControlOptions);
  
     
   }
-
   public createUser() {
-    console.log(this.registerForm.value);
-    this.router.navigate(['/login']);
-
+    const registerDTO = this.registerForm.value as createUserDTO;
+    this.authService.register(registerDTO).subscribe({
+      next: (response: ResponseDTO<createUserDTO>) => {
+        const user = response.data; 
+        console.log('Usuario registrado:', user);
+        alert(response.message); 
+      },
+      error: (err) => {
+        console.error(err);
+        alert('Error al registrar usuario');
+      }
+    });
   }
+
+  
 
   public passwordsMatchValidator(formGroup: FormGroup) {
   const password = formGroup.get('password')?.value;

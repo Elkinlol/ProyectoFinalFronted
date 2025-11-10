@@ -1,4 +1,4 @@
-export interface UpdateProfileDto {
+export interface UpdateProfileDTO {
     name?: string;
     telefono?: string;
     photoUrl?: string;
