@@ -13,3 +13,7 @@ import { CardPlace } from "../../components/card-place/card-place";
 export class Home {
   places: PlaceDTO[] = [];
 }
+
+
+
+

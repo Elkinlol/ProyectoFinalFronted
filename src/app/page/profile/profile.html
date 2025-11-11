@@ -4,20 +4,36 @@
   <div class="profile-container">
     <!-- Avatar -->
     <div class="avatar">
-      <div class="circle">{{ userInitial }}</div>
-      <button type="button" class="btn-upload">Agregar foto</button>
+      @if (!profilePhoto) {
+        <div class="circle">{{ userInitial }}</div>
+      } @else {
+        <img [src]="profilePhoto" alt="Foto de perfil" class="profile-photo">
+      }
+
+      <input
+        type="file"
+        accept="image/*"
+        (change)="onFileSelected($event)"
+        hidden
+        #fileInput
+      />
+
+      <button type="button" class="btn-upload" (click)="fileInput.click()">
+        Agregar foto
+      </button>
     </div>
+
 
     <!-- Información -->
     <div class="profile-fields">
       <div>
         <label>Nombre completo:</label>
-        <input type="text" formControlName="name" />
+        <input type="text" formControlName="fullName" />
       </div>
 
       <div>
         <label>Teléfono:</label>
-        <input type="text" formControlName="phone" />
+        <input type="text" formControlName="numberPhone" />
       </div>
 
       <div>
@@ -27,19 +43,21 @@
 
       <div>
         <label>Rol:</label>
-        <input type="text" formControlName="role" readonly />
+        <input type="text" formControlName="rol" readonly />
       </div>
 
       <div class="buttons">
         <button type="button" class="btn-secondary" (click)="changePassword()">Cambiar contraseña</button>
         <button type="submit" class="btn-primary"> Guardar cambios</button>
+        <button type="button" class="btn-danger" (click)="deleteAccount()">Eliminar cuenta</button>
       </div>
 
       <div class="role-switch">
         <button type="button" class="btn-switch" (click)="siwtchToHostProfile()">
-          Cambiar a {{ profileForm.get('role')?.value === 'Anfitrión' ? 'Huésped' : 'Anfitrión' }}
+          Cambiar a {{ profileForm.get('rol')?.value === 'Anfitrión' ? 'Huésped' : 'Anfitrión' }}
         </button>
       </div>
+
     </div>
   </div>
 </form>

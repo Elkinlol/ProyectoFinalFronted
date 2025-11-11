@@ -47,6 +47,6 @@ export class TokenService {
   }
 
   public getRole(): string {
-    return this.getPayload()?.role || "";
+    return this.getPayload()?.rol || "";
   }
 }

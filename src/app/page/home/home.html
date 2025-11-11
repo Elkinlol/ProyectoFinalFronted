@@ -3,3 +3,7 @@
 <main class="main">
   <app-search></app-search>
 </main>
+
+@for (item of places; track $index) {
+  <app-card-place [place]="item"></app-card-place>
+}

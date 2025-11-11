@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LoginDto } from '../models/login-dto';
+import { LoginDto } from '../models/auth/login-dto';
 import { ResponseDTO } from '../models/response-dto';
 import { LoginResponseDTO } from '../models/login-response-dto';
-import { createUserDTO } from '../models/create-user-dto';
+import { createUserDTO } from '../models/create/create-user-dto';
 import { Text } from '@angular/compiler';
 
 

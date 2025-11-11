@@ -5,8 +5,22 @@
   <div class="profile-container">
     <!-- Avatar -->
     <div class="avatar">
-      <div class="circle">{{ userInitial }}</div>
-      <button type="button" class="btn-upload">Agregar foto</button>
+      @if (!profilePhoto) {
+        <div class="circle">{{ userInitial }}</div>
+      } @else {
+        <img [src]="profilePhoto" alt="Foto de perfil" class="profile-photo">
+      }
+            <input
+        type="file"
+        accept="image/*"
+        (change)="onFileSelected($event)"
+        hidden
+        #fileInput
+      />
+
+      <button type="button" class="btn-upload" (click)="fileInput.click()">
+        Agregar foto
+      </button>
     </div>
 
     <form [formGroup]="profileHostForm" (ngSubmit)="updateProfileHost()" novalidate>
@@ -17,23 +31,19 @@
 
       <div>
         <label>Rol:</label>
-        <input type="text" formControlName="role" readonly />
+        <input type="text" formControlName="rol" readonly />
       </div>
 
       <div>
         <label>Nombre:</label>
-        <input type="text" formControlName="name" />
+        <input type="text" formControlName="fullName" />
       </div>
 
       <div>
         <label>Teléfono:</label>
-        <input type="text" formControlName="phone" />
+        <input type="text" formControlName="numberPhone" />
       </div>
 
-      <div>
-        <label>Foto:</label>
-        <input type="file" formControlName="photo" />
-      </div>
 
       <div>
         <label>Descripción:</label>
@@ -42,7 +52,7 @@
 
       <div>
         <label>Documentos Legales:</label>
-        <input type="file" formControlName="documents" />
+        <input type="file" (change)="onFileSelected($event)">
       </div>
 
       <div class="button-group">
@@ -52,6 +62,12 @@
 
         <button type="button" class="secondary" (click)="switchToUserProfile()">
             Cambiar a Perfil de huesped
+        </button>
+        <button type="button" class="tertiary" (click)="changePassword()">
+          Cambiar Contraseña
+        </button>
+        <button type="button" class="tertiary" (click)= "deleteAccount()">
+          eliminar cuenta
         </button>
       </div>
     </form>

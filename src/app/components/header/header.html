@@ -10,15 +10,52 @@
       <p>Tu espacio, tu experiencia.</p>
     </div>
 
-    <div class="auth-buttons">
-      <button routerLink="/login" class="btn btn-primary me-2">
-        Iniciar Sesión
-      </button>
+    @if(!isLogged) {
+      <div class="auth-buttons">
+        <button routerLink="/login" class="btn-primary">Iniciar Sesión</button>
+        <button routerLink="/register" class="btn-secondary">Crear cuenta</button>
+      </div>
+    }
+    @else {
 
-      <button routerLink="/register" class="btn btn-secondary">
-        Crear cuenta
-      </button>
-    </div>
-    
+      @if(isHost) {
+        <div class="user-info">
+
+          <button routerLink="/crear-alojamiento" class="btn-link-alt">Nuevo alojamiento</button>
+          <button routerLink="/reservas-host" class="btn-link-alt">Reservas</button>
+          <button routerLink="/metricas" class="btn-link-alt">Métricas</button>
+
+          @if(profilePhoto) {
+            <img [src]="profilePhoto" alt="Foto de perfil" class="user-photo" (click)="getProfileHost()">
+          }
+          @else {
+            <button class="user-initial" (click)="getProfileHost()">
+              {{ initial }}
+            </button>
+          }
+
+          <button (click)="logout()" class="logout-button">Cerrar Sesión</button>
+        </div>
+      }
+
+      @else {
+        <div class="user-info">
+
+          <button routerLink="/mis-reservas" class="btn-link-alt">Mis reservas</button>
+
+          @if(profilePhoto) {
+            <img [src]="profilePhoto" alt="Foto de perfil" class="user-photo" (click)="getProfile()">
+          }
+          @else {
+            <button class="user-initial" (click)="getProfile()">
+              {{ initial }}
+            </button>
+          }
+
+          <button (click)="logout()" class="logout-button">Cerrar Sesión</button>
+        </div>
+      }
+    }
+
   </div>
 </header>

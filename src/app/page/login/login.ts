@@ -3,11 +3,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { RouterLink } from "@angular/router";
 import { AuthService } from '../../services/auth-service';
 import { TokenService } from '../../services/token-service';
-import { LoginDto } from '../../models/login-dto';
+import { LoginDto } from '../../models/auth/login-dto';
 import { ResponseDTO } from '../../models/response-dto';
 import { LoginResponseDTO } from '../../models/login-response-dto';
 import { Router } from '@angular/router';
-import { UserDTO } from '../../models/user-dto';
+
 
 
 
@@ -38,8 +38,8 @@ export class Login {
       next: (response: ResponseDTO<LoginResponseDTO>) => {
         const loginResponse = response.data; 
         this.tokenService.login(loginResponse.token);
-        console.log('Usuario logueado:', loginResponse.userDTO);
         alert(response.message); 
+        this.router.navigate(['/main-page-guest']);
       },
       error: (err) => {
         console.error(err);

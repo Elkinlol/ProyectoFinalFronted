@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { AbstractControlOptions, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CreateListingDTO } from '../../models/create-listing-dto';
+import { CreateListingDTO } from '../../models/create/create-listing-dto';
 import { AuthService } from '../../services/auth-service';
 import { ResponseDTO } from '../../models/response-dto';
-import { createUserDTO } from '../../models/create-user-dto';
+import { createUserDTO } from '../../models/create/create-user-dto';
 
 @Component({
   selector: 'app-register',

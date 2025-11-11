@@ -7,7 +7,7 @@ import { ProfileHost } from '../page/profile-host/profile-host';
 import { InsertCode } from '../page/insert-code/insert-code';
 import { CreateListing } from '../components/create-listing/create-listing';
 import { RecoverPassword } from '../page/recover-password/recover-password';
-import { ChangePassword } from '../components/change-password/change-password';
+import { ChangePassword } from '../page/change-password/change-password';
 import { Reserve } from '../components/reserve/reserve';
 import { MyPlaces } from '../components/my-places/my-places';
 import { DetailPlace } from '../components/detail-listing/detail-listing';

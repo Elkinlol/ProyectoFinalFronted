@@ -88,13 +88,13 @@ label {
 input,
 textarea {
   width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #d0d7de;
+  border: 1.5px solid #cbd5e1;
   border-radius: 8px;
-  font-size: 14px;
-  font-family: inherit;
-  background-color: #fff;
-  resize: none;
+  padding: 10px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  outline: none;
+  color: #000;
 }
 
 input[readonly] {
@@ -143,6 +143,30 @@ button.secondary {
 button.secondary:hover {
   background-color: #10ac84;
   box-shadow: 0 0 10px #1dd1a1;
+}
+
+button.tertiary {
+  background-color: #ff4d4d;
+}
+
+button.tertiary:hover  {
+  background-color: #ff6b6b;
+  box-shadow: 0 0 10px #ff6b6b;
+}
+
+.profile-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover; 
+  border: 3px solid #e0e0e0; 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-photo:hover {
+  transform: scale(1.05); /* 🔹 Pequeño zoom al pasar el cursor */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 /* === RESPONSIVE === */
