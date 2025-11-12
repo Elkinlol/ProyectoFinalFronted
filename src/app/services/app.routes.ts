@@ -5,7 +5,7 @@ import { MainPageGuest } from '../page/main-page-guest/main-page-guest';
 import { Profile } from '../page/profile/profile';
 import { ProfileHost } from '../page/profile-host/profile-host';
 import { InsertCode } from '../page/insert-code/insert-code';
-import { CreateListing } from '../components/create-listing/create-listing';
+import { CreateListing } from '../page/create-listing/create-listing';
 import { RecoverPassword } from '../page/recover-password/recover-password';
 import { ChangePassword } from '../page/change-password/change-password';
 import { Reserve } from '../components/reserve/reserve';

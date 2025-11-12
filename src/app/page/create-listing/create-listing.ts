@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { max } from 'rxjs';
+import { Header } from "../../components/header/header";
 
 @Component({
   selector: 'app-create-listing',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, Header],
   templateUrl: './create-listing.html',
   styleUrl: './create-listing.css',
 })

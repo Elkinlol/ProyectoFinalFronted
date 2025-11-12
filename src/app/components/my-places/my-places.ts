@@ -3,10 +3,11 @@ import { PlaceDTO } from '../../models/place-dto';
 import { PlacesService } from '../../services/places-service';
 import { RouterLink } from "@angular/router";
 import Swal from 'sweetalert2';
+import { Header } from "../header/header";
 
 @Component({
   selector: 'app-my-places',
-  imports: [RouterLink],
+  imports: [RouterLink, Header],
   templateUrl: './my-places.html',
   styleUrl: './my-places.css'
 })

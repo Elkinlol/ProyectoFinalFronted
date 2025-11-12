@@ -3,10 +3,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { TokenService } from '../../services/token-service';
 import { UserService } from '../../services/user-service';
 import {Router} from "@angular/router";
+import{Header} from"../../components/header/header";
 
 @Component({
   selector: 'app-profile-host',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, Header],
   templateUrl: './profile-host.html',
   styleUrl: './profile-host.css',
 })
