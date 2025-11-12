@@ -32,12 +32,18 @@
     </div>
     <div>
         <label> Longitud: </label>
-        <input type="text" formControlName="length" />
+        <input type="text" formControlName="longitude" readonly />
     </div>
     <div>
         <label> Latitud: </label>
-        <input type="text" formControlName="latitude" />
+        <input type="text" formControlName="latitude" readonly />
     </div>
+
+    <div class="col-12">
+        <label> Mapa de ubicación: </label>
+        <div id="map"></div>
+    </div>
+
     <div>
         <label> Foto del alojamiento: </label>
         <input type="file" formControlName="images" />
