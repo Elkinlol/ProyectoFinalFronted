@@ -99,25 +99,41 @@
 }
 
 
-/* ===================== */
-/*        MAPA           */
-/* ===================== */
-
-.map-section {
+.map-reserve-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
   margin-top: 40px;
 }
 
+/* Mapa (mitad izquierda) */
+.map-section {
+  flex: 1;
+}
+
 #map-detail {
-  width: 50%;
+  width: 100%;   
   height: 300px;
   border-radius: 10px;
   border: 1px solid #ddd;
 }
 
 
-/* ===================== */
-/*       LOADING         */
-/* ===================== */
+.reserve-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.comments-wrapper {
+  width: 100%;
+  margin-top: 40px;
+}
+
+
 
 .loading {
   text-align: center;

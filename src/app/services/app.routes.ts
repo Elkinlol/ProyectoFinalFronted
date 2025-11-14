@@ -16,10 +16,8 @@ import { Search } from '../components/search/search';
 import { MainPageGuest } from '../page/main-page-guest/main-page-guest';
 
 export const routes: Routes = [
-  { path: '', component: MainPageGuest },
   { path: 'login', component: Login },
   { path: 'register', component: Register },
-  {path: 'main-page-guest', component: MainPageGuest},
   {path: 'profile', component: Profile},
   {path: 'profile-host', component: ProfileHost},
   {path: 'insert-code', component: InsertCode},
@@ -33,6 +31,5 @@ export const routes: Routes = [
   {path: 'edit-listing/:id', component: EditListing},
   {path: 'home', component: Home},
   { path:'search', component: Search },
-  {path: 'main-page-host', component:MainPageGuest},
   { path: "**", pathMatch: "full", redirectTo: "home" }
 ];

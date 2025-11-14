@@ -1,11 +1,11 @@
 <div class="cards-container">
   @for (item of places(); track item.id) {
-    <div class="property-card" routerLink="'/detail-listing/' + item.id">
+    <div class="property-card"  [routerLink]="'/detail-listing/' + item.id">
       
       <!-- Imagen -->
       <div class="card-image-wrapper">
         <img 
-          [src]="item.image?.[0] || 'assets/placeholder.jpg'" 
+          [src]="item.image?.[0] || 'LogoAloja.png'" 
           [alt]="item.title"
           class="card-image"
         >
@@ -19,16 +19,17 @@
           {{ item.title }}
         </h3>
 
-        <!-- Ubicación -->
-        <p class="card-location">
-          {{ item.adress?.city }}, {{ item.adress?.adress }}
-        </p>
 
 
         <div class="card-footer">
           <div class="card-rating">
             <span class="star">★</span>
             <span class="rating-value">{{ item.averageRating || '0.0' }}</span>
+          </div>
+
+          <div class="badge">
+            <span class="rating-value">{{ item.maxGuests }}</span>
+            <span class="material-symbols-outlined">person</span>
           </div>
           
           <div class="card-price">

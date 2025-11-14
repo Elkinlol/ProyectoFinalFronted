@@ -1,4 +1,5 @@
 <form [formGroup]="reserveForm" (ngSubmit)="makeReservation()" novalidate="">
+    @if(!isHost){
     <div>
         <label> Entrada: </label>
         <input type="date" formControlName="checkIn" />
@@ -16,5 +17,5 @@
         <input type="text" formControlName="discountCode" />
     </div>
     <button type="submit" [disabled]="reserveForm.invalid"> Enviar </button>
-
+    }
 </form>

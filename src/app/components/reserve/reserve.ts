@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { TokenService } from '../../services/token-service';
 @Component({
   selector: 'app-reserve',
   imports: [ReactiveFormsModule],
@@ -7,11 +8,23 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './reserve.css',
 })
 
-export class Reserve {
+export class Reserve  {
   reserveForm!: FormGroup;
-  constructor(private formBuilder: FormBuilder) {
+  isHost:boolean=false;
+
+  constructor(private formBuilder: FormBuilder, private tokenService: TokenService) {
     this.createForm();
   }
+
+  ngOnInit() {
+    const rol = this.tokenService.getRole();
+    if(rol=== 'HOST'){
+      this.isHost = true;
+    }
+  }
+
+
+  
   private createForm() {
     this.reserveForm = this.formBuilder.group({
       checkIn: ['', [Validators.required]],
@@ -21,7 +34,10 @@ export class Reserve {
     });
   }
   public makeReservation() {
-    console.log(this.reserveForm.value);
+    if(this.isHost){
+      return;
+    }
+
   }
 
 }

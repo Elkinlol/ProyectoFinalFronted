@@ -6,19 +6,15 @@
 
     <!-- GALERÍA -->
     <div class="gallery">
-      
-      <!-- Imagen grande -->
       <div class="gallery-main">
         <img [src]="place().image?.[0]" alt="Main image">
       </div>
 
-      <!-- Imágenes pequeñas -->
       <div class="gallery-side">
         @for (img of place().image?.slice(1, 5) ?? []; track img) {
           <img [src]="img" alt="Side image">
         }
       </div>
-
     </div>
 
     <!-- TITULO + DESCRIPCIÓN -->
@@ -38,7 +34,6 @@
       </p>
     </div>
 
-    <!-- SERVICIOS -->
     <div class="services-section">
       <h3>Servicios adicionales del alojamiento</h3>
 
@@ -49,9 +44,23 @@
       </div>
     </div>
 
-    <!-- MAPA -->
-    <div class="map-section">
-      <div id="map-detail"></div>
+    <!-- MAPA + FORMULARIO LADO A LADO -->
+    <div class="map-reserve-container">
+
+      <div class="map-section">
+        <div id="map-detail"></div>
+      </div>
+
+      @if(!isHost){
+      <div class="reserve-section">
+        <app-reserve></app-reserve>
+      </div>
+    }
+    </div>
+
+    <!-- COMENTARIOS ABAJO -->
+    <div class="comments-wrapper">
+      <app-comments></app-comments>
     </div>
 
   } @else {
@@ -61,5 +70,3 @@
   }
 
 </div>
-
-<app-comments></app-comments>

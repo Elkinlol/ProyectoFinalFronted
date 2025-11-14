@@ -5,11 +5,13 @@ import { CommonModule } from '@angular/common';
 import { Header } from "../header/header";
 import { Comments } from '../comments/comments';
 import { MapService } from '../../services/map-service';
+import { Reserve } from "../reserve/reserve";
+import { TokenService } from '../../services/token-service';
 
 @Component({
   selector: 'app-place-detail',
   standalone: true,
-  imports: [CommonModule, Header, Comments],
+  imports: [CommonModule, Header, Comments, Reserve],
   templateUrl: './detail-listing.html',
   styleUrl: './detail-listing.css'
 })
@@ -17,15 +19,35 @@ export class PlaceDetail {
 
   id = signal<string>('');
   place = signal<any>(null);
+  isHost:boolean=false;
 
   constructor(
     private route: ActivatedRoute,
     private listingService: ListingService,
-    private mapService: MapService
+    private mapService: MapService,
+    private tokenService: TokenService
   ) {
     this.route.params.subscribe(params => {
       this.id.set(params['id']);
       this.loadPlace(this.id());
+    });
+  }
+
+    ngOnInit(): void {
+      const rol = this.tokenService.getRole()
+      if(rol==='HOST'){
+        this.isHost=true;
+      }else{
+        this.isHost=false;
+      }
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      console.log("ID recibido en detalle:", id);
+
+      if (id) {
+        this.id.set(id);
+        this.loadPlace(id);
+      }
     });
   }
 
