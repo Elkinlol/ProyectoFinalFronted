@@ -1,3 +1,6 @@
+
+import { AddressDTO } from "../address-dto";
+
 export interface CreateListingDTO {
     id: number;
     title: string;
@@ -10,9 +13,4 @@ export interface CreateListingDTO {
     address: AddressDTO;
 }
 
-export interface AddressDTO{
-    city: string;
-    address: string;
-    latitude: number;
-    longitude: number;
-}
+

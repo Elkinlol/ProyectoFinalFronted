@@ -33,13 +33,33 @@ export class MapService implements OnDestroy {
     });
 
     this.map.addControl(new mapboxgl.NavigationControl());
-    this.map.addControl(
-      new mapboxgl.GeolocateControl({
-        positionOptions: { enableHighAccuracy: true },
-        trackUserLocation: true,
-      })
-    );
   }
+
+  public centerOnPlace(latitude: number, longitude: number): void {
+  if (!this.map) return;
+
+  // Limpia marcadores anteriores
+  this.clearMarkers();
+
+  // Nueva ubicación
+  const target: LngLatLike = [longitude, latitude];
+
+  // Centrar el mapa
+  this.map.flyTo({
+    center: target,
+    zoom: 16,
+    speed: 1.2,
+    curve: 1,
+    essential: true
+  });
+
+  // Dibujar marcador del alojamiento
+  const marker = new mapboxgl.Marker({ color: 'red' })
+    .setLngLat(target)
+    .addTo(this.map!);
+
+  this.markers.push(marker);
+}
 
   /** Dibuja varios marcadores con popup */
   public drawMarkers(places: MarkerDTO[]): void {
@@ -107,6 +127,6 @@ export class MapService implements OnDestroy {
 
   private clearMarkers(): void {
     this.markers.forEach((marker) => marker.remove()); // elimina los marcadores del mapa
-    this.markers = []; // limpia el arreglo de marcadores
+  this.markers = []; // limpia el arreglo de marcadores
   }
 }

@@ -1,46 +1,49 @@
-<section class="search-bar">
-  <div class="filter-card">
-    <!-- Estado / Dónde (según rol) -->
-    @if (isHost) {
-      <div class="filter-item">
-        <label class="field-label">Estado</label>
-        <input class="field-input" type="text" placeholder="de la reserva" />
-      </div>
-    } @else {
-      <div class="filter-item">
-        <label class="field-label">Donde</label>
-        <input class="field-input" type="text" placeholder="Explora destinos" />
-      </div>
-    }
+<form [formGroup]="searchForm" (ngSubmit)="submitFilters()">
+  <section class="search-bar">
+    <div class="filter-card">
 
-    <!-- Check-in -->
-    <div class="filter-item">
-      <label class="field-label">Fecha de entrada</label>
-      <input class="field-input" type="date" />
+      <!-- Estado / Dónde -->
+      @if (isHost) {
+        <div class="filter-item">
+          <label class="field-label">Estado</label>
+          <input class="field-input" type="text" placeholder="de la reserva" formControlName="state" />
+        </div>
+      } @else {
+        <div class="filter-item">
+          <label class="field-label">Dónde</label>
+          <input class="field-input" type="text" placeholder="Explora destinos" formControlName="city" />
+        </div>
+      }
+
+      <!-- Fecha entrada -->
+      <div class="filter-item">
+        <label class="field-label">Fecha de entrada</label>
+        <input class="field-input" type="date" formControlName="checkIn" />
+      </div>
+
+      <!-- Fecha salida -->
+      <div class="filter-item">
+        <label class="field-label">Fecha de salida</label>
+        <input class="field-input" type="date" formControlName="checkOut" />
+      </div>
+
+      <!-- Página / Valor -->
+      @if (isHost) {
+        <div class="filter-item">
+          <label class="field-label">Página</label>
+          <input class="field-input" type="number" placeholder="De la reserva" formControlName="page" />
+        </div>
+      } @else {
+        <div class="filter-item">
+          <label class="field-label">Valor</label>
+          <input class="field-input" type="number" placeholder="Precio por noche" formControlName="nightlyPrice" />
+        </div>
+      }
+
+      <button class="search-btn" type="submit" title="Buscar">
+        <span class="material-symbols-rounded">search</span>
+      </button>
+
     </div>
-
-    <!-- Check-out -->
-    <div class="filter-item">
-      <label class="field-label">Fecha de salida</label>
-      <input class="field-input" type="date"  />
-    </div>
-
-    <!-- Pagina / Valor por noche -->
-    @if (isHost) {
-      <div class="filter-item">
-        <label class="field-label">Página</label>
-        <input class="field-input" type="number" placeholder="De la reserva" />
-      </div>
-    } @else {
-      <div class="filter-item">
-        <label class="field-label">Valor</label>
-        <input class="field-input" type="number" placeholder="Precio por noche" />
-      </div>
-    }
-
-
-    <button class="search-btn" type="submit" title="Buscar">
-      <span class="material-symbols-rounded">search</span>
-    </button>
-  </div>
-</section>
+  </section>
+</form>

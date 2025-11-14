@@ -1,9 +1,16 @@
-<app-header type="home"></app-header>
+<app-header></app-header>
 
 <main class="main">
-  <app-search></app-search>
+  <app-search (filtersChange)="onFiltersChange($event)"></app-search>
+  <app-card-place [places]="places" ></app-card-place>
 </main>
 
-@for (item of places; track $index) {
-  <app-card-place [place]="item"></app-card-place>
-}
+
+
+  <app-pagination
+  [currentPage]="currentPage"
+  [totalPages]="totalPages"
+  (pageChange)="onPageChange($event)">
+</app-pagination>
+
+

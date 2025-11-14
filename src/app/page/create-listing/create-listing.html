@@ -10,33 +10,58 @@
         <textarea formControlName="description"></textarea>
     </div>
     <div>
-        <label> Precio: </label>
-        <input type="number" formControlName="price" /> 
+        <label> Precio por noche: </label>
+        <input type="number" formControlName="nightlyPrice" /> 
     </div>
     <div>
         <label> Cantidad maxima de huspedes </label>
-        <input type="number" formControlName="maxGuests" />
+        <input type="number" formControlName="maxGuest" />
     </div>
+
+    <div class="services-section">
+        <label class="section-title">Servicios</label>
+        <div class="services-list">
+        @for (service of services; track $index) {
+        <label class="service-item">
+        <input
+          type="checkbox"
+          [value]="service"
+          (change)="onServiceChange($event)"
+        />
+        {{ service }}
+        </label>
+        }
+     </div>
+    </div>
+    <div>
+    
+    <div formGroupName="adress">
+
     <div>
         <label> Dirección: </label>
-        <input type="text" formControlName="adress" />
+        <input formControlName="adress" placeholder="Dirección">
     </div>
-    <div> 
-        <label> Ciudad: </label>
-        <select formControlName="city">
-            <option value="" disabled selected>Seleccione una ciudad</option>
-            @for (item of cities; track $index) {
-                <option value="{{item}}">{{item}}</option>
-            }
-        </select>
+    <div>
+
+    <label>Ciudad: </label>
+    <select formControlName="city">
+        <option value="" disabled selected>Seleccione una ciudad</option>
+        @for (item of cities; track $index) {
+            <option value="{{item}}">{{item}}</option>
+        }
+    </select>
     </div>
+
     <div>
         <label> Longitud: </label>
-        <input type="text" formControlName="longitude" readonly />
+        <input formControlName="longitud" placeholder="Longitud" readonly>
     </div>
+
     <div>
         <label> Latitud: </label>
-        <input type="text" formControlName="latitude" readonly />
+        <input formControlName="latitud" placeholder="Latitud" readonly>
+    </div>
+
     </div>
 
     <div class="col-12">
@@ -46,7 +71,8 @@
 
     <div>
         <label> Foto del alojamiento: </label>
-        <input type="file" formControlName="images" />
+         <input class="form-control flex-grow-1" type="file" (change)="onFileChange($event)" />
     </div>
-    <button type="submit" [disabled]="createListingForm.invalid"> Crear Alojamiento </button>
+    <button type="submit" > Crear Alojamiento </button>
+    </div>
 </form>

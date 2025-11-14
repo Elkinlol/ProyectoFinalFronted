@@ -1,4 +1,44 @@
-<div>
-    <h1>{{place()?.title}}</h1>
-    <img src="{{getImage()}}" />
+<div class="cards-container">
+  @for (item of places(); track item.id) {
+    <div class="property-card" routerLink="'/detail-listing/' + item.id">
+      
+      <!-- Imagen -->
+      <div class="card-image-wrapper">
+        <img 
+          [src]="item.image?.[0] || 'assets/placeholder.jpg'" 
+          [alt]="item.title"
+          class="card-image"
+        >
+      </div>
+
+      <!-- Contenido -->
+      <div class="card-content">
+        
+        <!-- Título -->
+        <h3 class="card-title">
+          {{ item.title }}
+        </h3>
+
+        <!-- Ubicación -->
+        <p class="card-location">
+          {{ item.adress?.city }}, {{ item.adress?.adress }}
+        </p>
+
+
+        <div class="card-footer">
+          <div class="card-rating">
+            <span class="star">★</span>
+            <span class="rating-value">{{ item.averageRating || '0.0' }}</span>
+          </div>
+          
+          <div class="card-price">
+            <span class="price-amount">${{ item.nightlyPrice  }}</span>
+            <span class="price-period">/ noche</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  }
+
 </div>

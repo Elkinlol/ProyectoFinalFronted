@@ -1,1 +1,65 @@
-<p>{{place | json}}</p>
+<app-header></app-header>
+
+<div class="detail-container">
+
+  @if (place()) {
+
+    <!-- GALERÍA -->
+    <div class="gallery">
+      
+      <!-- Imagen grande -->
+      <div class="gallery-main">
+        <img [src]="place().image?.[0]" alt="Main image">
+      </div>
+
+      <!-- Imágenes pequeñas -->
+      <div class="gallery-side">
+        @for (img of place().image?.slice(1, 5) ?? []; track img) {
+          <img [src]="img" alt="Side image">
+        }
+      </div>
+
+    </div>
+
+    <!-- TITULO + DESCRIPCIÓN -->
+    <div class="info-section">
+      <h2>
+        {{ place().title }}, en {{ place().adress.city }}
+        <span class="rating">★ {{ place().averageRating }}</span>
+      </h2>
+
+      <h4 class="location-text">
+        Ubicación: {{ place().adress.adress }}  
+        ({{ place().adress.latitud }}, {{ place().adress.longitud }})
+      </h4>
+
+      <p class="description">
+        {{ place().description }}
+      </p>
+    </div>
+
+    <!-- SERVICIOS -->
+    <div class="services-section">
+      <h3>Servicios adicionales del alojamiento</h3>
+
+      <div class="services-grid">
+        @for (service of place().services ?? []; track service) {
+          <div class="service-item">{{ service }}</div>
+        }
+      </div>
+    </div>
+
+    <!-- MAPA -->
+    <div class="map-section">
+      <div id="map-detail"></div>
+    </div>
+
+  } @else {
+
+    <p class="loading">Cargando...</p>
+
+  }
+
+</div>
+
+<app-comments></app-comments>

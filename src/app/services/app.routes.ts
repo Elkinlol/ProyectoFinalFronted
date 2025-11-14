@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { Login } from '../page/login/login';
 import { Register } from '../page/register/register';
-import { MainPageGuest } from '../page/main-page-guest/main-page-guest';
 import { Profile } from '../page/profile/profile';
 import { ProfileHost } from '../page/profile-host/profile-host';
 import { InsertCode } from '../page/insert-code/insert-code';
@@ -10,8 +9,11 @@ import { RecoverPassword } from '../page/recover-password/recover-password';
 import { ChangePassword } from '../page/change-password/change-password';
 import { Reserve } from '../components/reserve/reserve';
 import { MyPlaces } from '../components/my-places/my-places';
-import { DetailPlace } from '../components/detail-listing/detail-listing';
+import { PlaceDetail } from '../components/detail-listing/detail-listing';
+import { EditListing } from '../page/edit-listing/edit-listing';
 import { Home } from '../page/home/home';
+import { Search } from '../components/search/search';
+import { MainPageGuest } from '../page/main-page-guest/main-page-guest';
 
 export const routes: Routes = [
   { path: '', component: MainPageGuest },
@@ -26,7 +28,11 @@ export const routes: Routes = [
   {path: 'change-password', component: ChangePassword},
   {path: 'reserve', component: Reserve},
   { path: "my-places", component: MyPlaces },
-  { path: 'listing/:id', component: DetailPlace },
+  { path: 'listing/:id', component: MyPlaces },
+  { path: 'detail-listing/:id', component: PlaceDetail },
+  {path: 'edit-listing/:id', component: EditListing},
   {path: 'home', component: Home},
+  { path:'search', component: Search },
+  {path: 'main-page-host', component:MainPageGuest},
   { path: "**", pathMatch: "full", redirectTo: "home" }
 ];

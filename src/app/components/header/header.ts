@@ -56,6 +56,7 @@ export class Header {
           error: (err) => {
             console.error('Error fetching host data:', err);
           }
+          
         });
 
       }

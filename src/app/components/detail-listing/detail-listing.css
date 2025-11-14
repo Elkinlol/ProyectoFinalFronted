@@ -1,0 +1,126 @@
+/* ===================== */
+/*       CONTENEDOR      */
+/* ===================== */
+
+.detail-container {
+  max-width: 1150px;
+  margin: 30px auto;
+  padding: 0 20px;
+  font-family: 'Georgia', serif;
+}
+
+
+/* ===================== */
+/*       GALERÍA         */
+/* ===================== */
+
+.gallery {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.gallery-main {
+  flex: 2;
+}
+
+.gallery-main img {
+  width: 100%;
+  height: 370px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.gallery-side {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.gallery-side img {
+  width: 100%;
+  height: 115px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+/* ===================== */
+/*     INFORMACIÓN       */
+/* ===================== */
+
+.info-section h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.rating {
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.location-text {
+  font-size: 17px;
+  margin-bottom: 15px;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 850px;
+  color: #444;
+}
+
+
+/* ===================== */
+/*      SERVICIOS        */
+/* ===================== */
+
+.services-section {
+  margin-top: 40px;
+}
+
+.services-section h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  gap: 12px;
+}
+
+.service-item {
+  font-size: 17px;
+}
+
+
+/* ===================== */
+/*        MAPA           */
+/* ===================== */
+
+.map-section {
+  margin-top: 40px;
+}
+
+#map-detail {
+  width: 50%;
+  height: 300px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+
+/* ===================== */
+/*       LOADING         */
+/* ===================== */
+
+.loading {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 40px;
+}

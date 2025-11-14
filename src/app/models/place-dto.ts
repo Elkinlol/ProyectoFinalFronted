@@ -1,18 +1,19 @@
 export interface PlaceDTO {
-    id: number;
+    id: string;
     title: string;
     description: string;
-    images: string[];
+    image: string[];
     services: string[];
     maxGuests: number;
-    pricePerNight: number;
+    averageRating: number;
+    nightlyPrice: number;
     hostId: string;
-    address: AddressDTO;
+    adress: AddressDTO; // <- aquí el cambio
 }
 
 export interface AddressDTO{
     city: string;
-    address: string;
-    latitude: number;
-    longitude: number;
+    adress: string;
+    latitud: string;
+    longitud: string;
 }
