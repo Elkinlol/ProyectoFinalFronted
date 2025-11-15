@@ -22,7 +22,7 @@
         <div class="user-info">
 
           <button routerLink="/create-listing" class="btn-link-alt">Nuevo alojamiento</button>
-          <button routerLink="/reserv-host" class="btn-link-alt">Reservas</button>
+          <button routerLink="/my-listing-reserves" class="btn-link-alt">Reservas</button>
           <button routerLink="/metricas" class="btn-link-alt">Métricas</button>
           <button routerLink="/my-places" class="btn-link-alt">Mis alojamientos</button>
 
@@ -42,7 +42,7 @@
       @else {
         <div class="user-info">
 
-          <button routerLink="/mis-reservas" class="btn-link-alt">Mis reservas</button>
+          <button routerLink="/my-reservs" class="btn-link-alt">Mis reservas</button>
 
           @if(profilePhoto) {
             <img [src]="profilePhoto" alt="Foto de perfil" class="user-photo" (click)="getProfile()">

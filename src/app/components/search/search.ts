@@ -2,11 +2,11 @@ import { Component, output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import { ListingService } from '../../services/listing-service';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from "@angular/router";
+
 
 @Component({
   selector: 'app-search',
-  imports: [ReactiveFormsModule, CommonModule, RouterLink],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './search.html',
   styleUrl: './search.css',
 })

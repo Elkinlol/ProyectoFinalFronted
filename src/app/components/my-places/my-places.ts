@@ -28,7 +28,6 @@ export class MyPlaces {
    ) {
     this.activitedRoute.params.subscribe( (params)=>{
       this.id= params ["id"];
-      this.get(this.id)
     });
     
     this.loadListings(0);
@@ -70,14 +69,13 @@ public onDelete(id:string) {
         error: (err) => {
           console.error(err);
           Swal.fire('Error', 'No se pudo eliminar el alojamiento', 'error');
-        }
-      });
-    }
-  });
-}
-
-  public get(listingId: String){
-
+          }
+        });
+      }
+    });
+  }
+  public onViewReserves(id:String){
+    
   }
 
 

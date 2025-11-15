@@ -44,14 +44,13 @@
       </div>
     </div>
 
-    <!-- MAPA + FORMULARIO LADO A LADO -->
     <div class="map-reserve-container">
 
       <div class="map-section">
         <div id="map-detail"></div>
       </div>
 
-      @if(!isHost){
+      @if(!isHost()){
       <div class="reserve-section">
         <app-reserve></app-reserve>
       </div>

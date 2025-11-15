@@ -13,23 +13,27 @@ import { PlaceDetail } from '../components/detail-listing/detail-listing';
 import { EditListing } from '../page/edit-listing/edit-listing';
 import { Home } from '../page/home/home';
 import { Search } from '../components/search/search';
-import { MainPageGuest } from '../page/main-page-guest/main-page-guest';
+import { MyReservs } from '../page/my-reservs/my-reservs';
+import { MyListingsReserves } from '../page/my-listings-reserves/my-listings-reserves';
+import { roleGuard } from './role-guard';
 
 export const routes: Routes = [
-  { path: 'login', component: Login },
-  { path: 'register', component: Register },
-  {path: 'profile', component: Profile},
-  {path: 'profile-host', component: ProfileHost},
-  {path: 'insert-code', component: InsertCode},
-  {path: 'create-listing', component: CreateListing},
-  {path: 'recover-password', component: RecoverPassword},
-  {path: 'change-password', component: ChangePassword},
-  {path: 'reserve', component: Reserve},
-  { path: "my-places", component: MyPlaces },
-  { path: 'listing/:id', component: MyPlaces },
-  { path: 'detail-listing/:id', component: PlaceDetail },
-  {path: 'edit-listing/:id', component: EditListing},
+  {path:'login', component: Login },
+  {path:'register', component: Register},
+  {path:'profile', component: Profile,canActivate: [roleGuard], data: { expectedRole: ["ROLE_GUEST"]}},
+  {path:'profile-host', component: ProfileHost ,canActivate: [roleGuard], data: { expectedRole: ["ROLE_HOST"]}},
+  {path:'insert-code', component: InsertCode},
+  {path:'create-listing', component: CreateListing, canActivate: [roleGuard], data: { expectedRole: ["ROLE_HOST"]} },
+  {path:'recover-password', component: RecoverPassword},
+  {path:'change-password', component: ChangePassword},
+  {path:'reserve', component: Reserve,canActivate: [roleGuard], data: { expectedRole: ["ROLE_GUEST"]}},
+  {path:"my-places", component: MyPlaces ,canActivate: [roleGuard], data: { expectedRole: ["ROLE_HOST"]}},
+  {path:'listing/:id', component: MyPlaces,canActivate: [roleGuard], data: { expectedRole: ["ROLE_HOST"]}},
+  {path:'detail-listing/:id', component: PlaceDetail},
+  {path: 'edit-listing/:id', component: EditListing,canActivate: [roleGuard], data: { expectedRole: ["ROLE_HOST"]}},
   {path: 'home', component: Home},
-  { path:'search', component: Search },
+  {path:'search', component: Search},
+  {path: 'my-reservs', component: MyReservs ,canActivate: [roleGuard], data: { expectedRole: ["ROLE_GUEST"]}},
+  {path: 'my-listing-reserves/:id', component: MyListingsReserves,canActivate: [roleGuard], data: { expectedRole: ["ROLE_HOST"]}},
   { path: "**", pathMatch: "full", redirectTo: "home" }
 ];

@@ -51,7 +51,6 @@
               <td>{{ item.adress?.city || '—' }}</td>
               <td>{{ item.adress?.adress || '—' }}</td>
               <td class="text-center">
-                <!-- Ver detalle -->
                 <a
                   [routerLink]="'/detail-listing/' + item.id"
                   class="btn btn-outline-primary btn-sm me-1"
@@ -60,7 +59,7 @@
                   <span class="material-symbols-rounded align-middle">visibility</span>
                 </a>
 
-                <!-- Editar -->
+                
                 <a
                   [routerLink]="'/edit-listing/' + item.id"
                   class="btn btn-outline-success btn-sm me-1"
@@ -78,6 +77,15 @@
                 >
                   <span class="material-symbols-rounded align-middle">delete</span>
                 </button>
+                <!-- Eliminar -->
+                <button
+                  [routerLink]="'/my-listing-reserves/' + item.id"
+                  (click)="onViewReserves(item.id)"
+                  type="button"
+                  class="btn btn-outline-primary btn-sm"
+                  title="Ver reservas">
+                  <span class="material-symbols-rounded">visibility</span>
+                  </button>
               </td>
             </tr>
           } @empty {

@@ -1,0 +1,34 @@
+<form [formGroup]="searchReservForm" >
+  <section class="search-bar">
+    <div class="filter-card">
+        
+    <div class="filter-item">
+        <label class="field-label">Estado</label>
+        <input class="field-input" type="String" placeholder="De la reserva" formControlName="estado" />
+    </div>
+
+      <div class="filter-item">
+        <label class="field-label">Fecha de entrada</label>
+        <input class="field-input" type="date" formControlName="checkIn" />
+      </div>
+
+      <!-- Fecha salida -->
+      <div class="filter-item">
+        <label class="field-label">Fecha de salida</label>
+        <input class="field-input" type="date" formControlName="checkOut" />
+      </div>
+
+
+    <div class="filter-item">
+        <label class="field-label">Página</label>
+        <input class="field-input" type="number" placeholder="De la reserva" formControlName="page" />
+    </div>
+
+
+      <button class="search-btn" type="submit" title="Buscar" (click)="search()">
+        <span class="material-symbols-rounded">search</span>
+      </button>
+
+    </div>
+  </section>
+</form>

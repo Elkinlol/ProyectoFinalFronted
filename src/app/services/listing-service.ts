@@ -78,12 +78,11 @@ export class ListingService {
   }
   public searchByParameters(filters: SearchListing): Observable<ResponseDTO<Page<PlaceDTO>>>{
     let params = new HttpParams().set("page", filters.page);
-
-
     if (filters.city) params = params.set("city", filters.city);
     if (filters.checkIn) params = params.set("checkIn", filters.checkIn);
     if (filters.checkOut) params = params.set("checkOut", filters.checkOut);
     if (filters.nightlyPrice) params = params.set("nightlyPrice", filters.nightlyPrice);
+    
     const token = this.tokenService.getToken();
     const headers = {
     'Authorization': `Bearer ${token}`,

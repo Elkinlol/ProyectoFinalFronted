@@ -19,7 +19,7 @@ export class PlaceDetail {
 
   id = signal<string>('');
   place = signal<any>(null);
-  isHost:boolean=false;
+  isHost = signal<boolean>(false);
 
   constructor(
     private route: ActivatedRoute,
@@ -36,9 +36,9 @@ export class PlaceDetail {
     ngOnInit(): void {
       const rol = this.tokenService.getRole()
       if(rol==='HOST'){
-        this.isHost=true;
+        this.isHost.set(true);
       }else{
-        this.isHost=false;
+        this.isHost.set(false);
       }
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');

@@ -9,6 +9,7 @@ import { TokenService } from '../../services/token-service';
 import {ImageService} from"../../services/image-service";
 import { Enums } from '../../services/enums';
 
+
 @Component({
   selector: 'app-create-listing',
   imports: [ReactiveFormsModule, Header],
@@ -39,8 +40,7 @@ export class CreateListing {
     console.log('Servicios recibidos:', services);
     this.services = services
   },
-  error: (err) => console.error('Error cargando servicios:', err)
-});
+  error: (err) => console.error('Error cargando servicios:', err) });
     this.createForm();
 
 

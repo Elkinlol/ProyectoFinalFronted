@@ -64,7 +64,7 @@ export class Header {
   }
     logout() {
     this.token.logout();
-    window.location.reload();
+    this.router.navigate(['/']).then(() => window.location.reload());
     }
 
     getProfile() {

@@ -24,5 +24,16 @@ export class Enums {
 
     return this.http.get<string[]>(this.baseUrl);
   }
+
+  getReservationStatus(): Observable<string[]> {
+
+    const token= this.tokenService.getToken();
+
+    const headers = {
+    'Authorization': `Bearer ${token}`,
+    'Content-Type': 'application/json'
+    }; 
+    return this.http.get<string[]>(this.baseUrl);
+  }
   
 }

@@ -6,7 +6,7 @@ import { TokenService } from '../../services/token-service';
 import { LoginDto } from '../../models/auth/login-dto';
 import { ResponseDTO } from '../../models/response-dto';
 import { LoginResponseDTO } from '../../models/login-response-dto';
-import { Router } from '@angular/router';
+import { CanActivateFn, Router } from '@angular/router';
 
 
 
