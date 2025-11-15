@@ -1,0 +1,113 @@
+:root {
+  --bg: #0f1724;
+  --muted: #97a1b5;
+  --accent: #5a9cff;
+  --accent-hover: #3b7ed0;
+  --danger: #ff6b6b;
+  --glass: rgba(255,255,255,0.03);
+  --radius: 12px;
+  --gap: 16px;
+  font-family: 'Inter', "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #e6eef8;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+}
+
+.form-card {
+  padding: 24px;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.04);
+  box-shadow: 0 8px 30px rgba(2,6,23,0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+h1 { margin: 0; font-size: 24px; }
+.lead { margin: 4px 0 16px; color: var(--muted); font-size: 14px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 500px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+.row { display: flex; flex-direction: column; }
+
+label { font-size: 14px; margin-bottom: 6px; font-weight: 500; }
+
+input {
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(90,156,255,0.3); /* hace que se vea que está enfocado */
+}
+
+.field-full { grid-column: 1 / -1; }
+
+.error {
+  font-size: 13px;
+  margin-top: 4px;
+  color: var(--danger);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+button {
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+  background:#91da88b8
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, var(--accent-hover), var(--accent));
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  color: var(--muted);
+  border: 1px solid rgba(255,255,255,0.3);
+  background: transparent;
+}
+
+.btn-ghost:hover {
+  background: rgba(90,156,255,0.1);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.note {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 12px;
+}

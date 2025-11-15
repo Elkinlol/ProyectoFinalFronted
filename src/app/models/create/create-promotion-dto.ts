@@ -1,6 +1,6 @@
 export interface CreatePromotionDto {
-    expiratedDaate: Date;
+    expiratedDaate: string;
     discountPercentage: number;
-    createdAt: Date;
+    createdAt: string;
     code: string;
 }

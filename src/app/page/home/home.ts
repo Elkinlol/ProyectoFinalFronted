@@ -6,7 +6,7 @@ import { CardPlace } from "../../components/card-place/card-place";
 import { Pagination } from "../../components/pagination/pagination";
 import { ListingService } from '../../services/listing-service';
 import { PlaceDTO } from '../../models/place-dto';
-import { ListingSearch } from '../../models/listing-search';
+
 
 @Component({
   selector: 'app-home',
@@ -44,7 +44,7 @@ export class Home {
     };
     this.listingService.searchByParameters(params).subscribe({
       next: (res) => {
-        const page = res.data;{}
+        const page = res.data;
         console.log(page)
         this.places = page.content || [];
         this.totalPages = page.totalPages ?? 0;

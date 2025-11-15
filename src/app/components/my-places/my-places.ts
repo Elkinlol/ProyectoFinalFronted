@@ -74,9 +74,7 @@ public onDelete(id:string) {
       }
     });
   }
-  public onViewReserves(id:String){
-    
-  }
+
 
 
   onPageChange(page: number) {

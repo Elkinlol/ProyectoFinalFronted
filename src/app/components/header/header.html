@@ -22,9 +22,9 @@
         <div class="user-info">
 
           <button routerLink="/create-listing" class="btn-link-alt">Nuevo alojamiento</button>
-          <button routerLink="/my-listing-reserves" class="btn-link-alt">Reservas</button>
           <button routerLink="/metricas" class="btn-link-alt">Métricas</button>
           <button routerLink="/my-places" class="btn-link-alt">Mis alojamientos</button>
+          
 
           @if(profilePhoto) {
             <img [src]="profilePhoto" alt="Foto de perfil" class="user-photo" (click)="getProfileHost()">
